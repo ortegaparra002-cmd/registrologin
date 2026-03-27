@@ -5,7 +5,7 @@ const messageElement = document.getElementById('mensaje');
 
 const botonAccesoProtegido = document.getElementById('acceso-protegido');
 const parrafoMensajeProtegido = document.getElementById('mensaje-protegido');
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://registrologin-5.onrender.com';
 
 
 registerForm.addEventListener('submit', async (e) => {
