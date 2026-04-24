@@ -1,39 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FritoMapp - Festival del Frito</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="formulario-registrarse" id="registro">
-        <h2>Registro de Usuario</h2>
-        <form id="formulario-registro">
-            <input type="text" id="reg-username" placeholder="Username" required>
-            <input type="password" id="reg-password" placeholder="Password" required>
-            <button type="submit">Registrar</button>
-        </form>
+
+    <section id="seccion-auth">
+        <h1>FritoMapp</h1>
+        
+        <div id="contenedor-registro">
+            <h2>Registro</h2>
+            <form id="formulario-registro">
+                <input type="text" id="reg-username" placeholder="Usuario" required>
+                <input type="password" id="reg-password" placeholder="Contraseña" required>
+                <select id="reg-rol">
+                    <option value="visitante">Visitante (Votar)</option>
+                    <option value="participante">Participante (Crear Puesto)</option>
+                </select>
+                <button type="submit">Registrarse</button>
+            </form>
+           <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión aquí</a></p>
     </div>
+        </div>
 
-    <div class="formulario-iniciar-sesion" id="login">
-        <h2>Iniciar Sesión</h2>
-        <form id="formulario-login">
-            <input type="text" id="log-username" placeholder="Username" required>
-            <input type="password" id="log-password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+        <div id="contenedor-login">
+            <h2>Iniciar Sesion</h2>
+            <form id="formulario-login">
+                <input type="text" id="log-username" placeholder="Usuario" required>
+                <input type="password" id="log-password" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p>¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate aquí</a></p>
     </div>
+        </div>
+        <p id="mensaje"></p>
+    </section>
 
-    <p id="mensaje"></p>
+    <section id="seccion-usuario" style="display: none;">
+        <nav>
+            <button class="btn-logout">Cerrar Sesion</button>
+        </nav>
+        <h1>Puestos de Fritos</h1>
+        
+        <div id="mapa-fritos"></div>
 
+        <h2>Ranking por Votos</h2>
+        <div id="ranking-list"></div>
 
-    <div class="seccion-protegida" style="margin-top: 20px;">
-    <h3>Recurso Protegido</h3>
-    <button id="acceso-protegido">Acceder a Datos Protegidos</button>
-    <p id="mensaje-protegido"></p>
-</div>
+        <h2>Puestos</h2>
+        <div id="contenedor-puestos"></div>
+    </section>
 
+    <section id="seccion-participante" style="display: none;">
+        <nav>
+            <button class="btn-logout">Cerrar Sesion</button>
+        </nav>
+        <h1>Mi Puesto</h1>
+        <form id="form-crear-puesto">
+            <input type="file" id="input-foto" accept="image/*" required>
+            <input type="text" id="nombre-puesto" placeholder="Nombre de tu puesto" required>
+            <textarea id="bio-puesto" placeholder="Tu historia..."></textarea>
+            <button type="button" id="obtener-ubicacion">Marcar ubicacion</button>
+            <p id="status-ub">Ubicacion no marcada</p>
+            <button type="submit">Publicar Puesto</button>
+        </form>
+        <div id="seccion-qr" style="display:none;">
+            <h3>Tu Codigo QR:</h3>
+            <img id="qr-resultado" src="" alt="Codigo QR">
+        </div>
 
+        <hr>
+        
+        <h2>Ranking</h2>
+        <div id="ranking-participante"></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
     <script src="app.js"></script>
+    <script src="visitante.js"></script>
+    <script src="registro-puesto.js"></script>
+
+    <script>
+    
+const contenedorLogin = document.getElementById('contenedor-login');
+const contenedorRegistro = document.getElementById('contenedor-registro');
+
+function mostrarRegistro() {
+
+    contenedorLogin.style.display = 'none';
+    contenedorRegistro.style.display = 'block';
+}
+
+function mostrarLogin() {
+    contenedorRegistro.style.display = 'none';
+    contenedorLogin.style.display = 'block';
+}
+
+</script>
+
+    
 </body>
 </html>

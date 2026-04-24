@@ -1,0 +1,141 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #ffbf00, #ff8c00);
+    min-height:100vh;
+}
+
+/* TITULOS */
+h1, h2, h3{
+    text-align:center;
+    color:#ffffff;
+    margin-bottom:15px;
+}
+
+/* SECCIONES */
+section{
+    padding:20px;
+}
+
+/* AUTH */
+#seccion-auth{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+}
+
+#contenedor-registro  {
+    background:#ff8c00;
+    padding:20px;
+    border-radius:15px;
+    width:320px;
+    margin:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    
+}
+#contenedor-login{
+    background:#ff8c00;
+    padding:20px;
+    border-radius:15px;
+    width:320px;
+    margin:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    display: none;
+}
+
+/* FORMULARIOS */
+form{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    max-width: 350px;
+}
+
+input, select, textarea{
+    margin-bottom:10px;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+input:focus, textarea:focus{
+    border-color:#ffffff;
+    box-shadow:0 0 5px #ffffff;
+}
+
+/* BOTONES */
+button{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#ff8c00;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ffffff;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:15px;
+}
+
+.btn-logout{
+    background:red;
+}
+
+/* MAPA */
+#mapa-fritos{
+    height:300px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+/* CARDS */
+#contenedor-puestos, 
+#ranking-list, 
+#ranking-participante{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:15px;
+}
+
+.card{
+    background:#fff;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+#mensaje{
+    margin-top:10px;
+    font-weight:bold;
+    color:#333;
+    text-align:center;
+}
+
+/* Contenedor de campos dinámicos (IMPORTANTE) */
+#campos-participante {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* Ocultar sin romper el diseño */
+.oculto {
+    display: none;
+}
